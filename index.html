@@ -1,1 +1,168 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BPM to ms</title>
+	<link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bpmtoms.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
+</head>
+<body>
+	<div class="container" style="text-align: center;" data-ng-app="bpmApp" data-ng-controller="validateCtrl">
+		<div class="jumbotron">
+			<h1>BPM to ms</h1>
+		</div>
+		<form class="form-horizontal" role="form" name="myForm" novalidate>
+			<div class="form-group">
+				<label class="col-xs-2 control-label">BPM</label>
+				<div class="col-xs-10">
+					<input type="number" min="1" step="1" name="bpm" class="form-control" data-ng-model="bpm" placeholder="BPM, eg. 120">
+					<span style="color:red" data-ng-show="myForm.bpm.$dirty && myForm.bpm.$invalid">
+						<span data-ng-show="myForm.bpm.$error.number">Enter a number above zero.</span>
+						<span data-ng-show="myForm.bpm.$error.min">Enter a number above zero.</span>
+					</span>
+				</div>
+			</div>
+		</form>
+		<hr>
+		<div class="row">
+			<div class="col-xs-6">
+				Whole Note =
+			</div>
+			<div class="col-xs-6">
+				{{240000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Half Note =
+			</div>
+			<div class="col-xs-6">
+				{{120000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Quarter Note =
+			</div>
+			<div class="col-xs-6">
+				{{60000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				1/8 Note =
+			</div>
+			<div class="col-xs-6">
+				{{30000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				1/16 Note =
+			</div>
+			<div class="col-xs-6">
+				{{15000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				1/32 Note =
+			</div>
+			<div class="col-xs-6">
+				{{7500 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				1/64 Note =
+			</div>
+			<div class="col-xs-6">
+				{{3750 / bpm}} ms
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet Whole Note =
+			</div>
+			<div class="col-xs-6">
+				{{160000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet Half Note =
+			</div>
+			<div class="col-xs-6">
+				{{80000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet Quarter Note =
+			</div>
+			<div class="col-xs-6">
+				{{40000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet 1/8 Note =
+			</div>
+			<div class="col-xs-6">
+				{{20000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet 1/16 Note =
+			</div>
+			<div class="col-xs-6">
+				{{10000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet 1/32 Note =
+			</div>
+			<div class="col-xs-6">
+				{{5000 / bpm}} ms
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				Triplet 1/64 Note =
+			</div>
+			<div class="col-xs-6">
+				{{2500 / bpm}} ms
+			</div>
+		</div>
+	</div>
+	<div class="footer" style="text-align: center; display: table; overflow: hidden;">
+		<div style="display: table-cell; vertical-align: middle;">
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">BPM to ms</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Stefan Olofsson</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+		</div>
+	</div>
+	<script>
+		var app = angular.module("bpmApp", []);
+		app.controller("validateCtrl", function($scope) {
+			$scope.bpm = "";
+		});
+	</script>
+	<!-- <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-55416488-1', 'auto');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
+	</script> -->
+</body>
+</html>
